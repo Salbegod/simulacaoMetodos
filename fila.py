@@ -1,7 +1,13 @@
-
 import heapq
 import random
 import time
+#import yaml
+
+#with open('model.yml', 'r') as f:
+#    data = yaml.load(f, Loader=yaml.Loader)
+     
+# Print the values as a dictionary
+#print(data.get('arrivals').get('Q1'))
 
 def nextRandom(a, c, m, x0):
 	x = ((a * x0) + c) % m
