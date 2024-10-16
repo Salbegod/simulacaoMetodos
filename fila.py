@@ -208,8 +208,8 @@ for i in seeds:
 with open('output.txt', 'w') as arquivo:
     for f in list(Tandem.filas.values()):
         keys = list(f.status.keys())
-        print(f.id, end = '\n')
-        print(f.id, end = '\n', file=arquivo)
+        print(f.id, "(G/G/{}{})".format(f.server, "/{}".format(f.popMax) if f.popMax > 0 else ""), end = '\n')
+        print(f.id, "(G/G/{}{})".format(f.server, "/{}".format(f.popMax) if f.popMax > 0 else ""), end = '\n', file=arquivo)
         for k in keys:
             print("{:7d}{:21.4f}{:21.2f}%".format(k, f.status[k], f.status[k] / (Tandem.tempo + Tandem.tempoTotal) * 100.0))
             print("{:7d}{:21.4f}{:21.2f}%".format(k, f.status[k], f.status[k] / (Tandem.tempo + Tandem.tempoTotal) * 100.0), file=arquivo)
@@ -222,4 +222,5 @@ with open('output.txt', 'w') as arquivo:
     
     print("Tempo", " medio" if len(seeds) > 1 else "" ," de simulacao global: ", "{:.4f}".format(Tandem.tempoTotal/len(seeds)), sep= '',file=arquivo)
     print("Tempo", " medio" if len(seeds) > 1 else "" ," de simulacao global: ",  "{:.4f}".format(Tandem.tempoTotal/len(seeds)), sep= '')
-    input()
+arquivo.close()
+input()
