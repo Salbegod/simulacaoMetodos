@@ -210,6 +210,7 @@ with open('output.txt', 'w') as arquivo:
         keys = list(f.status.keys())
         print(f.id, "(G/G/{}{})".format(f.server, "/{}".format(f.popMax) if f.popMax > 0 else ""), end = '\n')
         print(f.id, "(G/G/{}{})".format(f.server, "/{}".format(f.popMax) if f.popMax > 0 else ""), end = '\n', file=arquivo)
+        print("Estados               Tempo               Probabilidade");
         for k in keys:
             print("{:7d}{:21.4f}{:21.2f}%".format(k, f.status[k], f.status[k] / (Tandem.tempo + Tandem.tempoTotal) * 100.0))
             print("{:7d}{:21.4f}{:21.2f}%".format(k, f.status[k], f.status[k] / (Tandem.tempo + Tandem.tempoTotal) * 100.0), file=arquivo)
